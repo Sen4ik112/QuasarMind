@@ -1081,26 +1081,26 @@ function closeDrawer(){
 // ------------------------------------------------------
 // ТУТ додавай свої треки — просто перелічи файли, скільки завгодно
 const playlist = [
-  "music1(wokeup).mp3",
-  "music2(20min).mp3",
-  "music3(hight).mp3",
-  "music4(alot).mp3",
-  "music5(MTE).mp3",
-  "music6(money).mp3",
-  "music7(btnoon).mp3",
-  "music8(usaying).mp3",
-  "music9(king).mp3",
-  "music10(plates).mp3",
-  "music11(gaang).mp3",
-  "music12(hot).mp3",
-  "music13(1993).mp3",
-  "music14(neenah).mp3",
-  "music15(comengo).mp3",
-  "music16(numidch).mp3",
-  "music17(rakz).mp3",
-  "music18.mp3",
-  "music19(rollin).mp3",
-  "music20(fakeid).mp3"
+  "music/music1(wokeup).mp3",
+  "music/music2(20min).mp3",
+  "music/music3(hight).mp3",
+  "music/music4(alot).mp3",
+  "music/music5(MTE).mp3",
+  "music/music6(money).mp3",
+  "music/music7(btnoon).mp3",
+  "music/music8(usaying).mp3",
+  "music/music9(king).mp3",
+  "music/music10(plates).mp3",
+  "music/music11(gaang).mp3",
+  "music/music12(hot).mp3",
+  "music/music13(1993).mp3",
+  "music/music14(neenah).mp3",
+  "music/music15(comengo).mp3",
+  "music/music16(numidch).mp3",
+  "music/music17(rakz).mp3",
+  "music/music18.mp3",
+  "music/music19(rollin).mp3",
+  "music/music20(fakeid).mp3"
 ];
 let trackIndex = 0;
 

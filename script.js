@@ -942,22 +942,28 @@ function toggleFilterDropdown(){
   wrap.classList.toggle("open");
   markMenuJustOpened();
   if(menu){
+    let maxH = "80vh";
     if(willOpen && window.innerWidth <= 700){
       // На мобільних рахуємо позицію напряму в px відносно РЕАЛЬНОЇ ширини
-      // екрана (window.innerWidth). CSS "left:50%" для position:absolute
-      // рахувався відносно вузького .filter-dropdown-wrap (самої кнопки
-      // "Фільтри"), а не екрана — тому й вилазило за край. Тут це вже
-      // не залежить від жодного батьківського елемента.
+      // екрана (window.innerWidth) і реального положення самої кнопки
+      // (getBoundingClientRect — завжди координати відносно екрана,
+      // незалежно від будь-яких батьківських контейнерів). Так панель
+      // з'являється точно під кнопкою, а не десь по центру екрана.
+      const btnRect = wrap.getBoundingClientRect();
       const panelWidth = Math.min(window.innerWidth * 0.92, 420);
       const leftPx = Math.round((window.innerWidth - panelWidth) / 2);
+      const topPx = Math.round(btnRect.bottom + 8);
       menu.style.setProperty("position", "fixed", "important");
       menu.style.setProperty("left", leftPx + "px", "important");
       menu.style.setProperty("right", "auto", "important");
-      menu.style.setProperty("top", "50%", "important");
-      menu.style.setProperty("transform", "translateY(-50%)", "important");
+      menu.style.setProperty("top", topPx + "px", "important");
+      menu.style.setProperty("transform", "none", "important");
       menu.style.setProperty("width", panelWidth + "px", "important");
+      // щоб панель не вилазила за нижній край екрана — висота обмежується
+      // залишком простору під кнопкою, а не завжди фіксованими 80vh
+      maxH = Math.max(200, window.innerHeight - topPx - 16) + "px";
     }
-    menu.style.setProperty("max-height", willOpen ? "80vh" : "0px", "important");
+    menu.style.setProperty("max-height", willOpen ? maxH : "0px", "important");
     menu.style.setProperty("opacity", willOpen ? "1" : "0", "important");
     menu.style.setProperty("pointer-events", willOpen ? "auto" : "none", "important");
   }
